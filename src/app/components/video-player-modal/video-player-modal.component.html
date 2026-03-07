@@ -1,16 +1,16 @@
 <div class="modal-overlay" (click)="close.emit()">
   <div class="player-modal" (click)="$event.stopPropagation()">
-
     <button class="close-modal" (click)="close.emit()">
       <i class="bi bi-x"></i>
     </button>
 
-    <video #player
-           [src]="videoBlob | safeUrl"
-           autoplay
-           (timeupdate)="updateProgress()"
-           (ended)="isPlaying = false">
-    </video>
+    <video
+      #player
+      [src]="videoBlob | safeUrl"
+      (timeupdate)="updateProgress()"
+      (ended)="isPlaying = false"
+      autoplay
+    ></video>
 
     <div class="custom-controls">
       <button class="play-pause-btn" (click)="togglePlay()">

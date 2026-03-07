@@ -15,7 +15,7 @@
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 
   video {
     width: 100%;
@@ -124,6 +124,6 @@
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
   }
 }

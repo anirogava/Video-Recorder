@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { VideoRecord } from '../../models';
 import { CommonModule } from '@angular/common';
-import { SafeUrlPipe } from "../../../pipes/safe-url.pipe";
+import { SafeUrlPipe } from '../../../pipes/safe-url.pipe';
 
 @Component({
   selector: 'app-video-sidebar',
   standalone: true,
   imports: [CommonModule, SafeUrlPipe],
   templateUrl: './video-sidebar.component.html',
-  styleUrl: './video-sidebar.component.scss'
+  styleUrl: './video-sidebar.component.scss',
 })
 export class VideoSidebarComponent {
   @Input() videos: VideoRecord[] = [];

@@ -217,11 +217,11 @@ $progress-fill: rgba(80, 97, 208, 1);
   pointer-events: none;
 }
 
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}

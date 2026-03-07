@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { SafeUrlPipe } from "../../../pipes/safe-url.pipe";
+import { SafeUrlPipe } from '../../../pipes/safe-url.pipe';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, SafeUrlPipe],
   templateUrl: './video-player-modal.component.html',
-  styleUrl: './video-player-modal.component.scss'
+  styleUrl: './video-player-modal.component.scss',
 })
 export class VideoPlayerModalComponent {
   @Input() videoBlob!: Blob;
@@ -42,8 +42,12 @@ export class VideoPlayerModalComponent {
 
   private formatTime(seconds: number): string {
     if (isNaN(seconds)) return '00:00';
-    const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
-    const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+    const mins = Math.floor(seconds / 60)
+      .toString()
+      .padStart(2, '0');
+    const secs = Math.floor(seconds % 60)
+      .toString()
+      .padStart(2, '0');
     return `${mins}:${secs}`;
   }
 }

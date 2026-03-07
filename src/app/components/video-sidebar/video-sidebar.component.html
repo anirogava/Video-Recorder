@@ -1,9 +1,7 @@
 <div class="sidebar-container">
-
   @for (video of videos; track video.id) {
     <div class="video-card" (click)="playVideo.emit(video.blob)">
-
-      <video [src]="video.blob | safeUrl" class="thumbnail" muted preload="metadata"></video>
+      <video class="thumbnail" [src]="video.blob | safeUrl" muted preload="metadata"></video>
 
       <div class="meta-overlay">
         <div class="meta-left">
@@ -11,13 +9,13 @@
           <span>{{ formatTime(video.createdAt) }}</span>
         </div>
         <div class="meta-right">
-          <span>10s</span> </div>
+          <span>10s</span>
+        </div>
       </div>
 
       <button class="delete-btn" (click)="$event.stopPropagation(); deleteVideo.emit(video.id!)">
         <i class="bi bi-trash"></i>
       </button>
-
     </div>
   } @empty {
     <div class="empty-state">
@@ -25,5 +23,4 @@
       <p>There are no recorded videos yet</p>
     </div>
   }
-
 </div>
