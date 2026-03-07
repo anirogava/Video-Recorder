@@ -28,7 +28,6 @@ export class AppComponent implements OnInit {
   @Select(VideoState.getVideos) videos$!: Observable<VideoRecord[]>;
   @Select(VideoState.getQuality) quality$!: Observable<VideoQuality>;
 
-  isInitializing = true;
   videoToPlay: Blob | null = null;
   videoToDelete: number | null = null;
 
@@ -40,11 +39,9 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     this.store.dispatch(new LoadVideos());
 
-    this.isInitializing = true;
     const detectedQuality = await this.bandwidthService.getBandwidth();
 
     this.store.dispatch(new SetQuality(detectedQuality));
-    this.isInitializing = false;
   }
 
   onVideoRecorded(blob: Blob) {

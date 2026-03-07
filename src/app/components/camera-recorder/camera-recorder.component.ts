@@ -49,13 +49,24 @@ export class CameraRecorderComponent implements OnChanges, OnDestroy {
   }
 
   async initCamera(quality: VideoQuality) {
-    this.isLoading = true;
-    this.stopCamera();
+    if (!this.stream) {
+      this.isLoading = true;
+    }
 
     const constraints = this.getConstraints(quality);
 
     try {
-      this.stream = await navigator.mediaDevices.getUserMedia({ video: constraints, audio: true });
+      const newStream = await navigator.mediaDevices.getUserMedia({
+        video: constraints,
+        audio: true
+      });
+
+      if (this.stream) {
+        this.stream.getTracks().forEach((track) => track.stop());
+      }
+
+      this.stream = newStream;
+
       if (this.videoElement) {
         this.videoElement.nativeElement.srcObject = this.stream;
       }
@@ -112,6 +123,7 @@ export class CameraRecorderComponent implements OnChanges, OnDestroy {
         if (this.recordingProgress >= 100) this.stopRecording();
       });
   }
+
   stopRecording() {
     if (this.mediaRecorder && this.isRecording) {
       this.mediaRecorder.stop();
