@@ -1,0 +1,32 @@
+<div class="modal-overlay" (click)="close.emit()">
+  <div class="player-modal" (click)="$event.stopPropagation()">
+
+    <button class="close-modal" (click)="close.emit()">
+      <i class="bi bi-x"></i>
+    </button>
+
+    <video #player
+           [src]="videoBlob | safeUrl"
+           autoplay
+           (timeupdate)="updateProgress()"
+           (ended)="isPlaying = false">
+    </video>
+
+    <div class="custom-controls">
+      <button class="play-pause-btn" (click)="togglePlay()">
+        <i class="bi" [ngClass]="isPlaying ? 'bi-pause-fill' : 'bi-play-fill'"></i>
+      </button>
+
+      <span class="time-display">{{ currentTime }}</span>
+
+      <div class="progress-container">
+        <div class="progress-track">
+          <div class="progress-fill" [style.width.%]="progressPercent"></div>
+          <div class="progress-thumb" [style.left.%]="progressPercent"></div>
+        </div>
+      </div>
+
+      <span class="time-display">{{ duration }}</span>
+    </div>
+  </div>
+</div>

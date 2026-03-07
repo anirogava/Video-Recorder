@@ -1,0 +1,94 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.dialog-box {
+  background: #ffffff;
+  padding: 40px 30px 30px;
+  border-radius: 8px;
+  text-align: center;
+  width: 400px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+  .close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: rgba(91, 92, 106, 1);
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #333;
+    }
+  }
+
+  .dialog-icon {
+    font-size: 44px;
+    color: rgba(229, 63, 40, 1);
+    margin-bottom: 12px;
+  }
+
+  h3 {
+    margin: 0 0 12px 0;
+    color: rgba(41, 40, 48, 1);
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  p {
+    color: rgba(91, 92, 106, 1);
+    font-size: 14px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+
+  .dialog-actions {
+    display: flex;
+    gap: 16px;
+
+    button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .btn-cancel {
+      background: #ffffff;
+      border: 1px solid rgba(80, 97, 208, 1);
+      color: rgba(80, 97, 208, 1);
+
+      &:hover {
+        background: rgba(92, 106, 196, 0.05);
+      }
+    }
+
+    .btn-danger {
+      background: rgba(229, 63, 40, 1);
+      border: 1px solid rgba(229, 63, 40, 1);
+      color: white;
+
+      &:hover {
+        background: #c0392b;
+        border-color: #c0392b;
+      }
+    }
+  }
+}

@@ -26,4 +26,11 @@
     </div>
   }
 </div>
-
+@if (videoToDelete !== null) {
+  <app-delete-modal (cancel)="videoToDelete = null" (confirm)="onDeleteConfirmed()">
+  </app-delete-modal>
+}
+@if (videoToPlay) {
+  <app-video-player-modal [videoBlob]="videoToPlay" (close)="videoToPlay = null">
+  </app-video-player-modal>
+}
